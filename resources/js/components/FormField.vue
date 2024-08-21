@@ -41,6 +41,9 @@
             {{ __('novaMultiselect.maxElements', { max: String(currentField.max || '') }) }}
           </template>
 
+          <template #option="props">
+            <span v-html="props.option.label"/>
+          </template>
           <template #noResult>
             {{ __('novaMultiselect.noResult') }}
           </template>
@@ -58,7 +61,7 @@
           </template>
 
           <template #singleLabel>
-            <span>{{ value ? value.label : '' }}</span>
+            <span v-html="value.label"></span>
           </template>
 
           <template #tag="{ option, remove }">
